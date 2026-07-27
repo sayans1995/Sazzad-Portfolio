@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sazzad Hossen Sayan - Data Analytics & AI Professional</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0F172A;
+            --primary-light: #1E293B;
+            --accent: #3B82F6;
+            --accent-dark: #1E40AF;
+            --accent-light: #93C5FD;
+            --text-primary: #0F172A;
+            --text-secondary: #475569;
+            --text-muted: #94A3B8;
+            --bg-white: #FFFFFF;
+            --bg-light: #F8FAFC;
+            --bg-lighter: #F1F5F9;
+            --border-color: #E2E8F0;
+            --success: #10B981;
+            --success-light: #DBEAFE;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-white) 100%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .profile-image {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent-light);
+            margin: 0 auto 2rem;
+            display: block;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            animation: slideDown 0.8s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            line-height: 1.1;
+            animation: slideDown 0.8s ease-out 0.2s both;
+        }
+
+        .hero .title {
+            font-size: 1.3rem;
+            color: var(--accent-light);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            animation: slideDown 0.8s ease-out 0.4s both;
+        }
+
+        .hero .tagline {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: slideDown 0.8s ease-out 0.6s both;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: slideDown 0.8s ease-out 0.8s both;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            font-weight: 500;
+            text-decoration: none;
+            border: 2px solid;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-dark);
+            border-color: var(--accent-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border-color: white;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* ===== NAVIGATION ===== */
+        .nav-container {
+            background: var(--bg-white);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 0;
+            max-width: 1000px;
+            margin: 0 auto;
+            overflow-x: auto;
+            scrollbar-width: thin;
+        }
+
+        .nav-tabs::-webkit-scrollbar {
+            height: 4px;
+        }
+
+        .nav-tabs::-webkit-scrollbar-track {
+            background: var(--bg-light);
+        }
+
+        .nav-tabs::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+            border-radius: 2px;
+        }
+
+        .nav-tabs button {
+            padding: 1.2rem 1.5rem;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            font-weight: 500;
+        }
+
+        .nav-tabs button:hover {
+            color: var(--accent);
+        }
+
+        .nav-tabs button.active {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+
+        /* ===== CONTENT SECTIONS ===== */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section {
+            display: none;
+            animation: fadeIn 0.4s ease-in;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--primary);
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 0.5rem;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .about-card {
+            background: var(--bg-white);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            border-left: 4px solid var(--accent);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.1);
+        }
+
+        .about-card h3 {
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .about-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .job-card {
+            background: var(--bg-white);
+            border-radius: 0.75rem;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--accent);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .job-card:hover {
+            transform: translateX(8px);
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.1);
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .job-title-group h3 {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .job-title-group p {
+            color: var(--accent);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .job-duration {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            white-space: nowrap;
+        }
+
+        .job-description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            display: none;
+        }
+
+        .job-card.expanded .job-description {
+            display: block;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .toggle-btn {
+            background: none;
+            border: none;
+            color: var(--accent);
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 0.9rem;
+            padding: 0;
+            text-decoration: underline;
+            transition: all 0.2s ease;
+        }
+
+        .toggle-btn:hover {
+            color: var(--accent-dark);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill-tag {
+            background: var(--bg-light);
+            color: var(--accent);
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            font-weight: 500;
+            border: 1px solid var(--accent-light);
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: var(--accent-light);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .interests-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .interest-item {
+            background: var(--bg-white);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border-top: 3px solid var(--accent);
+        }
+
+        .interest-item h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .interest-item p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--accent-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .footer-divider {
+            width: 50px;
+            height: 2px;
+            background: var(--accent);
+            margin: 1.5rem auto;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero {
+                padding: 4rem 1.5rem;
+            }
+
+            .profile-image {
+                width: 100px;
+                height: 100px;
+            }
+
+            .hero .title {
+                font-size: 1rem;
+            }
+
+            .cta-group {
+                flex-direction: column;
+            }
+
+            .cta-group .btn {
+                width: 100%;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
+
+            .section h2 {
+                font-size: 1.5rem;
+            }
+
+            .job-header {
+                flex-direction: column;
+            }
+
+            .nav-tabs button {
+                padding: 1rem;
+                font-size: 0.85rem;
+            }
+        }
+
+        /* ===== ACCESSIBILITY ===== */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        button:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        a:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wgARCAMgAyADASIAAhEBAxEB/8QAHAABAAIDAQEBAAAAAAAAAAAAAAECAwQFBgcI/8QAGgEBAQEBAQEBAAAAAAAAAAAAAAECAwQFBv/aAAwDAQACEAMQAAAB/KgAAAAADqI5b0l18w9OPMPX7ceFe/3l+ZPqHQj4++wdKX4a+59Gvz2/Q2+fmre/RaPz1tfex8NzfbC/IH19m/II+wRl80j6ZC+En3MNeUz+kLxNnpJdTbAIAAAAATAAAAAAAARIqmNaAUuZxpi8wAAESKjloD5Vu/UHWfNdr6AXw+x7Bl5rN35ObboQqYstQWmJxkAKCAAJHTIUEAACJQxVZraTFoAAqWVmpQiQAEwAAAAAAAAAAK2W1FoEUyVYqLgAACo5aAzzW29hIAmJETAtWxVMFpic5AAAAE0G8gsJjFkaCMpgBEQstoLSIS0a/LOrj0a2b9PN6qest4qp9AyeEz2+2ng9WXZY8kswAAAAAAAAAACtotgWokzjF5gAAVHLQGeYnWgAAAExIi0C1LyBIAAAmJ1A1AzqExAQSqImIkqTWvD1e9g4Hi9T33L+Xauufq+dwJ1nra2lJu20Rt1w7Bl2tbLG7v8ACqv0P13w30edfV3I38dM1te+mWcdc3Mx5AAAAAAAACqY1oCkWreIACJiWBzoGa1Z3ZEoAABMFoTJW1ZtsM5AAAEgdMhQjNEYqa2tQqNa/hdTewcHzOsdHgNfpi0ROs1Xla5pyQiLmCa4zo5eVsiFYysS3e73j5j6P0flvVxr6tucLt897WdN3KJgAAAAAABW1bQtimTHeYMgImIgc9AZ0OlmYnNAAAmEiYmSImLbTW0gSAAJgTF6kA1/l/wBY+Tax5OJ2N849b5b1nj93p9/n73yvu2vitz75djW236GXBSa2sNbcumWK3zqZZcsSYMdZruTNZ1m00r15MGfBZFFc3BR5KztltXRJ6h9QPn18d+4nMQ+JfHfiBzu7F/wB+HPfhVrjxn4QlpficdNbG0y41pwV8tJj2X2Z1pxKbR1tY2jecVfmHt4+i3RFO4duTVgNaVzaRvxb1Dw9R3g4AJ+AXN7C3qupsozWmLkNAR2ySJx9LlyYTfaLmFjEzAQHxLsplMnH6A5Vfx6qkVzBrI8Rq4TcJLiFfqJ1y8L0ozdgG2gvxC6Yna7iZY7yDjx0Rc9gRDSY5gIHVY8TiGdqVXhQZEd+eY+C0yBZ+RKvJg2uYjJTL0Sv96wKBzaAToDnyQrwFY1qfhuRXeNl/mF8RkxHmY/xcJTsQXXTEqDsj56vykqeozrVqb7jrmZb/AJQPQH8lzBzGwYFZ6lzxPL0s0w15W/pWvuq1gPBdNGhexMJiAHVb21hnExGx+gDU0A2h4m4bhbqZK/hEVbIAv2gHa6GmbyDtzSc5aeXVlb3VzJt3j5SdY5gzYGLEHGCsN1q4b+pBSDy5xZ0AIGMWj2zJVlyZztH0h6R2DUQqYnB26q1+RzLrAryZE5e1DTM4XVUGG0RbxqC9b6cQ74o3w83FqVrXrDfRHx7J/gGWaXrArOGLb04TuuZ5vjHxPx7LSx1VrQRk5fRMSCGx5qJcrzZl8v6Knn6VhZVc81R5eSwCF4EXQqHtJPTgrQfUfhLuUvW7A8wVsxYL/ZLWqn2BoqT3Rc0HNLkwJH9m7rOlVdvgNwZO+hZMxeCU1L3ELbfMr1V1oEHd8ZXL1mwYRG0TQeN36SmPpK7+i0Hpxg2hYqWrZe+/eF99I8wzOFdaeLyiGROb7YFtm7r2mZG0anT+BX1f4bwX30iMgaXr3G1aVd5Y8wKhZa7F9xZvGKs9Ik9Mso6//ydWCjWAAOwb1TH5/Ej5xt9pxUHx0QhpPGTW5vNzj9JzU1rQWgr3lQHb0d5eZXj2AyZWvr92WW7eO04QdVRkK1+WxW1nVMXRNHZqIxCm4GZgfZfmdWCLJh6aLsQu02nnO0F3dHxF/Hy/TTc1JhQfcBrR65vc9syhzT1NZfZm/8uBSCvlH36X9WIRfmTXTGf1Nm93J+3VohsZ6Lau8aYxfnmdlYWPVDNSvXe7YiNWwb9o1H9xZGYYXl5jd1n3hhzx1H2GWtHXHWMCNWqnzEDXVzRz5xzGh6Ij4+n1TN8Q7+7Z0Wl3iDmVw7LTn6jCDuD92cXf3c3eLRE6h2EH1PQ7l98ytrDGNSE5Ni11Nv93FzjWjZI//AITEJXxGd/qN92WT+BH7w39XEZrAKwt+WfyiOBZDQQHUC1L4nVj4jCmvCF/vkOv+Yfmhzq5F1kDLzLlqiQFHnmvVxm6TFTT+8S9eB+v7/x/TlIazJfMfBDlXhFYOZ78xhVwhfBzg5r8cYJefkOY+4dv4XRDX1J+bwjl9xMxNgAV+EIz9kXQHmEJnhYdl5gOo5OvvAiZmzfzPXnTI8fGI5+8Z45Z6RzO+WW/q5uPCVTmWPf+MbQ71Lq5Vhe8Rz1Ek2ydszvpqnz+eLgnAuPDiH7n+T/ALfJnGhsx/xF0eFv4tuwdZNVPmV6jRX2bq8Uou1fwT2+4tJjKFPzvJDv4mCGqvP8z/Iy4hc1F1TmVxRVOYkOxp8T/MK9wI8SpCZVQGVwqyEGZb7lW1l9tpKlK0qVJVDEv6BDi61+2RjE2vEZv+JVXjfZx0zBYP8bwKxZiZo9fvM/Q5+YO0D0yk4OXRW/BdnDXRyfYSp2Y+PbWVdnT+jYG+yxeZVQmqQx3hyejHuHLjVFmLzGN+eCF6RRzBEm//AT1QHwKO8cPb3hLGpOwpD0kNHrZ5wjmqxl+fBgLpwQBb7sKhm96jFjD2dI5cO0KVPnqVEqTy9/6voN8M0VedPnwDRRMh6ZXHbMVV6XdA6VQVi6cpIpqQdl6fLZZn3/v2fq5J6vbx/V0d/l1Sw34fXhTjy0Rfv2bMd1L8+v0BzG+LvkJ/sS00x21jSB67cRzMVzd7+Cou4+g/wP/v8ALvhNDuVXgtWpgPpTn8+Cz6k6N0btrvfCyXw9S0frtJDa0hQ35TrEwVb4gOsVbk/LJh6GKVcVUpMkxM1HqVbKSG2vbxhDk2v1B4qlJJdLz2L2Gm91u+I6jGzOdTGmyvEIUYN3xC2VsoS3f1JdLUzXjTDGHr2Gtvdo5M46sBoJP0bNYVrqVv4XMWmr28Zl5qfgPy/1KqK3r4wTEexQ+n8eocVR76gPSq+SJj/f7vl5xQzB9MJXjKWaT8/wBkGq0OvT+8qm5fDfDVEfcKr2B7LL+sVB8S1QOa9lrG4HcBExPznzlSoRGb5MBQsvmLsjjmEb1v+oCO8UlsjI5jU7LqfSvs48xiKBxNgL2MbvRl1vN4eFl+H+85EE9xzfHj3/f+XJ3C5mfdJydRtQWGhpBFkXq5Gv8sYM3x2NsYwmG9l0xbuVVrAX8EYnjyYKsBPX5VhqKEd5B0RRVUVQ5V3BgzxEP5BRWYnbw/cJMlGPOVK3/7L5J7Xuh5kgTSTqFRV1FnvxyVQs/jfLBh5LG6nGPe4vc2b2Kzn1pNI+Zr2qXlT1GYRt9Sd9WPy6OlX5eLKhjMBxN9e+1Odo9SDj1xeVnPn85fBLddO/Py/l/YR5hGWAFHYxWc4rvfkl1wvHcXgvqVh0uVNK5+Ib9vgR7dqvBLi/q7xQG1n+D0mfv4qXUqZx9dNyzb16b/d3WQazBYY5B+/jUJc+nJE/FW2xcVgqB8/H5fz9jLyfj8iX15y/8ARq81VpTj+yzC0AoAKl/8RCU4x6M+A+pjP9BzJOhCUhV5zHGUP2qhqO44+J6kpFhMHhv8ANxX2ow74r94+vgKg0CvYZKlrVQgYgP5H9IYowbglM1SqYqovhQ+gqj1I6C0A6QBpDqxgapbmlXp3jRwSmFIRiNTf3oeEP7+JYVhS5C9zGzuCpYLJYhVrBquZgXFg+oxNHH3iOZRVhzS5evTxCNS3iexduWJaFSX05fhquqwzPFZ2GKs3cXBWWXR8n7kzTQdWHmHOZXxGvEjmO8FzX4evpv4xm+PdynWRrMBnwH7/eIrMJ9SzrOt4dZl3hzN33P3iQ3xMVzdS1wvFZZt9l5gxyWFwBcTkVbR+p+Yrn+Y0yl1LRlZc1mWF/7I+3c+d1Sv9yVXqaC1efXj7pzSxsYBdww5XnBGNPy/nFG3Nz/dOfDl/J/k4Z/Hf3uBIhd/wCD//Z" alt="Sazzad Hossen Sayan" class="profile-image">
+            <h1>Sazzad Hossen Sayan</h1>
+            <p class="title">Sr. Analyst, Data Analytics & AI Strategy</p>
+            <p class="tagline">Transforming data into actionable insights at Tyson Foods. Passionate about AI ethics, healthcare IT, and human-computer interaction.</p>
+            <div class="cta-group">
+                <a href="mailto:sazzadsayan@gmail.com" class="btn btn-primary">Get in Touch</a>
+                <a href="https://www.linkedin.com/in/ssayan/" target="_blank" class="btn btn-secondary">LinkedIn Profile</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- NAVIGATION -->
+    <div class="nav-container">
+        <div class="nav-tabs">
+            <button class="nav-btn active" data-tab="about">About</button>
+            <button class="nav-btn" data-tab="experience">Experience</button>
+            <button class="nav-btn" data-tab="skills">Skills</button>
+            <button class="nav-btn" data-tab="interests">Interests</button>
+            <button class="nav-btn" data-tab="contact">Contact</button>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+        <!-- ABOUT SECTION -->
+        <section id="about" class="section active">
+            <h2>About Me</h2>
+            <div class="about-grid">
+                <div class="about-card">
+                    <h3>Location</h3>
+                    <p>Fayetteville, AR 72703</p>
+                </div>
+                <div class="about-card">
+                    <h3>Current Role</h3>
+                    <p>Sr. Analyst, Commodity Purchasing Systems & Analytics @ Tyson Foods</p>
+                </div>
+                <div class="about-card">
+                    <h3>Education</h3>
+                    <p>MIS + Graduate Certificate in Business Analytics, University of Arkansas (GPA: 4.0)</p>
+                </div>
+                <div class="about-card">
+                    <h3>Background</h3>
+                    <p>Software Developer | Product Owner | Data & Analytics Professional</p>
+                </div>
+                <div class="about-card">
+                    <h3>Phone</h3>
+                    <p>+1 (479) 332-9660</p>
+                </div>
+                <div class="about-card">
+                    <h3>Email</h3>
+                    <p>sazzadsayan@gmail.com</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE SECTION -->
+        <section id="experience" class="section">
+            <h2>Professional Experience</h2>
+            
+            <div class="job-card">
+                <div class="job-header">
+                    <div class="job-title-group">
+                        <h3>Sr. Analyst, Commodity Purchasing Systems & Analytics</h3>
+                        <p>Tyson Foods</p>
+                    </div>
+                    <span class="job-duration">Sep 2025 – Present</span>
+                </div>
+                <p>Leading analytics initiatives in commodity purchasing operations.</p>
+            </div>
+
+            <div class="job-card">
+                <div class="job-header">
+                    <div class="job-title-group">
+                        <h3>IT Product Owner II</h3>
+                        <p>Tyson Foods</p>
+                    </div>
+                    <span class="job-duration">Jan – Aug 2025</span>
+                </div>
+                <p>Managed product development and IT strategy initiatives.</p>
+            </div>
+
+            <div class="job-card">
+                <div class="job-header">
+                    <div class="job-title-group">
+                        <h3>Analyst Applications IT, Manufacturing & Inventory</h3>
+                        <p>Tyson Foods</p>
+                    </div>
+                    <span class="job-duration">May 2023 – Dec 2024</span>
+                </div>
+                <p>Analyzed and optimized manufacturing and inventory systems.</p>
+            </div>
+
+            <div class="job-card">
+                <div class="job-header">
+                    <div class="job-title-group">
+                        <h3>Graduate Assistant</h3>
+                        <p>Sam M. Walton College of Business, University of Arkansas</p>
+                    </div>
+                    <span class="job-duration">May 2022 – May 2023</span>
+                </div>
+                <p>Supported academic programs and research initiatives.</p>
+            </div>
+
+            <div class="job-card">
+                <div class="job-header">
+                    <div class="job-title-group">
+                        <h3>Software Developer</h3>
+                        <p>Paperfly Private Ltd, Bangladesh</p>
+                    </div>
+                    <span class="job-duration">Apr – Nov 2019</span>
+                </div>
+                <p>Developed software solutions for logistics and e-commerce.</p>
+            </div>
+        </section>
+
+        <!-- SKILLS SECTION -->
+        <section id="skills" class="section">
+            <h2>Skills & Certifications</h2>
+            <div class="skills-grid">
+                <div class="skill-tag">Data Analytics</div>
+                <div class="skill-tag">Business Intelligence</div>
+                <div class="skill-tag">Python</div>
+                <div class="skill-tag">SQL</div>
+                <div class="skill-tag">Excel</div>
+                <div class="skill-tag">Tableau</div>
+                <div class="skill-tag">AI Strategy</div>
+                <div class="skill-tag">Product Management</div>
+                <div class="skill-tag">Project Management</div>
+                <div class="skill-tag">Data Visualization</div>
+                <div class="skill-tag">Statistical Analysis</div>
+                <div class="skill-tag">Requirements Gathering</div>
+                <div class="skill-tag">SAP</div>
+                <div class="skill-tag">R Programming</div>
+                <div class="skill-tag">Healthcare IT</div>
+            </div>
+            <h3 style="margin-top: 3rem; margin-bottom: 1.5rem; color: var(--primary);">Certifications</h3>
+            <div class="skills-grid">
+                <div class="skill-tag">eCornell Product Management (In Progress)</div>
+                <div class="skill-tag">DataCamp R Programming</div>
+                <div class="skill-tag">SAP Job Shadowing</div>
+                <div class="skill-tag">Coursera Excel</div>
+                <div class="skill-tag">Beta Gamma Sigma</div>
+            </div>
+        </section>
+
+        <!-- INTERESTS SECTION -->
+        <section id="interests" class="section">
+            <h2>Research Interests & Hobbies</h2>
+            <div class="interests-list">
+                <div class="interest-item">
+                    <h3>Data Analytics</h3>
+                    <p>Leveraging data to uncover insights and drive business decisions through statistical analysis and visualization.</p>
+                </div>
+                <div class="interest-item">
+                    <h3>AI Strategy</h3>
+                    <p>Exploring the strategic implementation of AI and machine learning in enterprise environments.</p>
+                </div>
+                <div class="interest-item">
+                    <h3>AI Ethics</h3>
+                    <p>Advocating for responsible and ethical AI development and deployment practices.</p>
+                </div>
+                <div class="interest-item">
+                    <h3>Healthcare IT</h3>
+                    <p>Interested in how technology can improve healthcare delivery and patient outcomes.</p>
+                </div>
+                <div class="interest-item">
+                    <h3>Human-Computer Interaction</h3>
+                    <p>Designing intuitive and user-centered digital experiences.</p>
+                </div>
+                <div class="interest-item">
+                    <h3>Sports & Recreation</h3>
+                    <p>Passionate about soccer, badminton, and poker – always enjoy a competitive challenge.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="section">
+            <h2>Get In Touch</h2>
+            <div class="about-grid" style="margin-top: 2rem;">
+                <div class="about-card">
+                    <h3>Email</h3>
+                    <p><a href="mailto:sazzadsayan@gmail.com" style="color: var(--accent); text-decoration: none; word-break: break-all;">sazzadsayan@gmail.com</a></p>
+                </div>
+                <div class="about-card">
+                    <h3>Phone</h3>
+                    <p><a href="tel:+14793329660" style="color: var(--accent); text-decoration: none;">+1 (479) 332-9660</a></p>
+                </div>
+                <div class="about-card">
+                    <h3>LinkedIn</h3>
+                    <p><a href="https://www.linkedin.com/in/ssayan/" target="_blank" style="color: var(--accent); text-decoration: none;">linkedin.com/in/ssayan</a></p>
+                </div>
+                <div class="about-card">
+                    <h3>Location</h3>
+                    <p>Fayetteville, AR 72703</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <h3 style="font-family: 'Playfair Display', serif; margin-bottom: 0.5rem;">Sazzad Hossen Sayan</h3>
+            <p style="color: var(--text-muted); margin-bottom: 0;">Data Analytics & AI Professional | Tyson Foods</p>
+            <div class="footer-divider"></div>
+            <div class="footer-links">
+                <a href="mailto:sazzadsayan@gmail.com">Email</a>
+                <a href="https://www.linkedin.com/in/ssayan/" target="_blank">LinkedIn</a>
+                <a href="tel:+14793329660">Phone</a>
+            </div>
+            <p style="margin-top: 2rem; color: var(--text-muted); font-size: 0.9rem;">© 2024 Sazzad Hossen Sayan. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Tab Navigation
+        document.querySelectorAll('.nav-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const tabName = this.getAttribute('data-tab');
+                
+                // Remove active class from all buttons and sections
+                document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+                
+                // Add active class to clicked button and corresponding section
+                this.classList.add('active');
+                document.getElementById(tabName).classList.add('active');
+            });
+        });
+
+        // Job card toggle
+        document.querySelectorAll('.job-card').forEach(card => {
+            card.addEventListener('click', function() {
+                this.classList.toggle('expanded');
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
