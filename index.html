@@ -398,30 +398,132 @@
             transform: scale(1.05);
         }
 
-        .interests-list {
+        .interests-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 1.5rem;
+            margin-bottom: 3rem;
         }
 
-        .interest-item {
+        .interest-card {
             background: var(--bg-white);
-            padding: 1.5rem;
+            padding: 2rem 1.5rem;
             border-radius: 0.75rem;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            text-align: center;
             border-top: 3px solid var(--accent);
+            transition: all 0.3s ease;
         }
 
-        .interest-item h3 {
+        .interest-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(59, 130, 246, 0.15);
+        }
+
+        .interest-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .interest-card h3 {
             color: var(--primary);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
             font-size: 1.1rem;
+            font-weight: 600;
         }
 
-        .interest-item p {
+        .interest-card p {
             color: var(--text-secondary);
             font-size: 0.9rem;
             line-height: 1.6;
+        }
+
+        .skills-category {
+            background: var(--bg-white);
+            padding: 1.75rem;
+            border-radius: 0.75rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--accent);
+        }
+
+        .skills-category h3 {
+            color: var(--primary);
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .skills-category p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 1rem;
+        }
+
+        .cert-tag {
+            background: var(--bg-light);
+            color: var(--accent);
+            padding: 0.85rem 1rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            font-weight: 500;
+            border: 1px solid var(--accent-light);
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .cert-tag:hover {
+            background: var(--accent-light);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .hobbies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .hobby-card {
+            background: var(--bg-white);
+            padding: 2.5rem 2rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            border: 2px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .hobby-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(59, 130, 246, 0.15);
+        }
+
+        .hobby-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .hobby-card h3 {
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .hobby-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
         }
 
         /* ===== FOOTER ===== */
@@ -550,8 +652,8 @@
         <div class="nav-tabs">
             <button class="nav-btn active" data-tab="about">About</button>
             <button class="nav-btn" data-tab="experience">Experience</button>
-            <button class="nav-btn" data-tab="skills">Skills</button>
-            <button class="nav-btn" data-tab="interests">Interests</button>
+            <button class="nav-btn" data-tab="skills-interests">Skills & Interests</button>
+            <button class="nav-btn" data-tab="hobbies">Hobbies</button>
             <button class="nav-btn" data-tab="contact">Contact</button>
         </div>
     </div>
@@ -649,63 +751,87 @@
             </div>
         </section>
 
-        <!-- SKILLS SECTION -->
-        <section id="skills" class="section">
-            <h2>Skills & Certifications</h2>
-            <div class="skills-grid">
-                <div class="skill-tag">Data Analytics</div>
-                <div class="skill-tag">Business Intelligence</div>
-                <div class="skill-tag">Python</div>
-                <div class="skill-tag">SQL</div>
-                <div class="skill-tag">Excel</div>
-                <div class="skill-tag">Tableau</div>
-                <div class="skill-tag">AI Strategy</div>
-                <div class="skill-tag">Product Management</div>
-                <div class="skill-tag">Project Management</div>
-                <div class="skill-tag">Data Visualization</div>
-                <div class="skill-tag">Statistical Analysis</div>
-                <div class="skill-tag">Requirements Gathering</div>
-                <div class="skill-tag">SAP</div>
-                <div class="skill-tag">R Programming</div>
-                <div class="skill-tag">Healthcare IT</div>
+        <!-- SKILLS & INTERESTS SECTION -->
+        <section id="skills-interests" class="section">
+            <h2>Research Interests</h2>
+            <div class="interests-cards">
+                <div class="interest-card">
+                    <div class="interest-icon">📊</div>
+                    <h3>Data Analytics & AI Strategy</h3>
+                    <p>Leveraging data-driven insights and strategic AI implementation for enterprise solutions</p>
+                </div>
+                <div class="interest-card">
+                    <div class="interest-icon">⚖️</div>
+                    <h3>AI Ethics</h3>
+                    <p>Responsible AI development and ethical considerations in algorithm design</p>
+                </div>
+                <div class="interest-card">
+                    <div class="interest-icon">🏥</div>
+                    <h3>Healthcare IT</h3>
+                    <p>Digital transformation in healthcare systems and patient experience optimization</p>
+                </div>
+                <div class="interest-card">
+                    <div class="interest-icon">💻</div>
+                    <h3>Human-Computer Interaction</h3>
+                    <p>User-centered design and intuitive digital experience optimization</p>
+                </div>
             </div>
-            <h3 style="margin-top: 3rem; margin-bottom: 1.5rem; color: var(--primary);">Certifications</h3>
-            <div class="skills-grid">
-                <div class="skill-tag">eCornell Product Management (In Progress)</div>
-                <div class="skill-tag">DataCamp R Programming</div>
-                <div class="skill-tag">SAP Job Shadowing</div>
-                <div class="skill-tag">Coursera Excel</div>
-                <div class="skill-tag">Beta Gamma Sigma</div>
+
+            <h2 style="margin-top: 4rem;">Skills & Tools</h2>
+            
+            <div class="skills-category">
+                <h3>Data Analytics & Programming</h3>
+                <p>Python • SQL • R • Excel • Statistical Analysis • Data Visualization</p>
+            </div>
+
+            <div class="skills-category">
+                <h3>Business Intelligence & Tools</h3>
+                <p>Tableau • Power BI • Google Data Studio • Business Analytics</p>
+            </div>
+
+            <div class="skills-category">
+                <h3>Enterprise Systems</h3>
+                <p>SAP S/4HANA • ERP Systems • Requirements Gathering • System Integration</p>
+            </div>
+
+            <div class="skills-category">
+                <h3>Product & Project Management</h3>
+                <p>Product Management • Project Management • Agile Methodology • Stakeholder Management</p>
+            </div>
+
+            <h3 style="margin-top: 3rem; margin-bottom: 1rem; color: var(--primary);">Certifications</h3>
+            <div class="cert-grid">
+                <div class="cert-tag">eCornell Product Management</div>
+                <div class="cert-tag">DataCamp R Programming</div>
+                <div class="cert-tag">SAP Job Shadowing</div>
+                <div class="cert-tag">Coursera Excel</div>
+                <div class="cert-tag">Beta Gamma Sigma</div>
             </div>
         </section>
 
-        <!-- INTERESTS SECTION -->
-        <section id="interests" class="section">
-            <h2>Research Interests & Hobbies</h2>
-            <div class="interests-list">
-                <div class="interest-item">
-                    <h3>Data Analytics</h3>
-                    <p>Leveraging data to uncover insights and drive business decisions through statistical analysis and visualization.</p>
+        <!-- HOBBIES SECTION -->
+        <section id="hobbies" class="section">
+            <h2>Hobbies & Recreation</h2>
+            <div class="hobbies-grid">
+                <div class="hobby-card">
+                    <div class="hobby-icon">⚽</div>
+                    <h3>Soccer</h3>
+                    <p>Team sport enthusiast who values collaboration, strategy, and physical fitness through competitive play.</p>
                 </div>
-                <div class="interest-item">
-                    <h3>AI Strategy</h3>
-                    <p>Exploring the strategic implementation of AI and machine learning in enterprise environments.</p>
+                <div class="hobby-card">
+                    <div class="hobby-icon">🏸</div>
+                    <h3>Badminton</h3>
+                    <p>Quick reflexes and tactical gameplay combined with individual skill development and friendly competition.</p>
                 </div>
-                <div class="interest-item">
-                    <h3>AI Ethics</h3>
-                    <p>Advocating for responsible and ethical AI development and deployment practices.</p>
+                <div class="hobby-card">
+                    <div class="hobby-icon">🃏</div>
+                    <h3>Poker</h3>
+                    <p>Strategic decision-making under uncertainty, probability analysis, and psychological acuity in competitive settings.</p>
                 </div>
-                <div class="interest-item">
-                    <h3>Healthcare IT</h3>
-                    <p>Interested in how technology can improve healthcare delivery and patient outcomes.</p>
-                </div>
-                <div class="interest-item">
-                    <h3>Human-Computer Interaction</h3>
-                    <p>Designing intuitive and user-centered digital experiences.</p>
-                </div>
-                <div class="interest-item">
-                    <h3>Sports & Recreation</h3>
-                    <p>Passionate about soccer, badminton, and poker – always enjoy a competitive challenge.</p>
+                <div class="hobby-card">
+                    <div class="hobby-icon">🥾</div>
+                    <h3>Hiking</h3>
+                    <p>Mountain and trail exploration combining physical endurance, nature immersion, and mental rejuvenation through outdoor adventure.</p>
                 </div>
             </div>
         </section>
